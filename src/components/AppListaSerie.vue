@@ -17,6 +17,7 @@ export default {
                 <p>{{serie.name}} </p>
                 <CountryFlag :country="serie.original_language === 'en' ? 'gb' : ''" size="normal"/>
                 <p>{{serie.vote_average}}</p>
+                <img :src="`https://image.tmdb.org/t/p/w154/${serie.poster_path}`" :alt="serie.name">
             </li>
         </ul>
     </div>
