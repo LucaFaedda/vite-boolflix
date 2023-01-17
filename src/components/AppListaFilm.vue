@@ -16,13 +16,6 @@ export default {
             store
         }
     },
-    methods: {
-        changeLanguage(){
-            if(original_language == 'en'){
-                this.original_language == 'gb'
-            }
-        }
-    },
 }
 </script>
 <template lang="">
@@ -31,7 +24,7 @@ export default {
             <li>
                 <p>{{ film.original_title}}</p> 
                 <p>{{film.title}} </p>
-                <CountryFlag :country="film.original_language" size="normal"/>
+                <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/>
                 <p>{{film.vote_average}}</p>
             </li>
         </ul>
