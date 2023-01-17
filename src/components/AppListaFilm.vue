@@ -1,6 +1,13 @@
 <script>
 import { store } from '../store'
+import CountryFlag from 'vue-country-flag-next'
+
+
 export default {
+    components:{
+        CountryFlag,
+
+    },
     props:{
         film:Object
     },
@@ -8,7 +15,14 @@ export default {
         return{
             store
         }
-    }
+    },
+    methods: {
+        changeLanguage(){
+            if(original_language == 'en'){
+                this.original_language == 'gb'
+            }
+        }
+    },
 }
 </script>
 <template lang="">
@@ -17,7 +31,7 @@ export default {
             <li>
                 <p>{{ film.original_title}}</p> 
                 <p>{{film.title}} </p>
-                <p>{{film.original_language}}</p>
+                <CountryFlag :country="film.original_language" size="normal"/>
                 <p>{{film.vote_average}}</p>
             </li>
         </ul>
