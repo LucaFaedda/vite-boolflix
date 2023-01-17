@@ -16,14 +16,17 @@ import { store } from './store';
       } 
     },
     created(){
-      this.MovieList()
+      this.searchFilm()
     },
     methods:{
-      MovieList(){
-        axios.get(store.url).then((response)=>{
-          console.log(response.data.results)
+      searchFilm(){
+        let newUrl =`${store.url}${store.searchFilm}`
+        console.log(newUrl)
+        axios.get(newUrl).then((response)=>{
+        store.movies = response.data.results
+        console.log(store.movies)
         })
-      }
+      },
     }
 
       
@@ -31,7 +34,7 @@ import { store } from './store';
 </script>
 <template lang="">
   <div>
-    <AppHeader></AppHeader>
+    <AppHeader @search="searchFilm" ></AppHeader>
     <AppMain></AppMain>
     <AppFooter></AppFooter>
   </div>

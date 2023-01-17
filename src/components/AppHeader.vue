@@ -1,12 +1,22 @@
 <script>
 import { store } from '../store'
+import AppListaFilm from './AppListaFilm.vue'
 
   export default {
+    components:{
+        AppListaFilm
+    },
       data(){
         return{
             store,
-            search: ''
         }
+      },
+      methods:{
+        cerca(){
+            let word = store.searchFilm.toLowerCase()
+            this.$emit('search' , word)
+        }
+
       }
 
   }
@@ -14,8 +24,11 @@ import { store } from '../store'
 <template lang="">
   <header>
     <div class="searchbar">
-        <input v-model="search" placeholder="Cerca Film/Serie Tv">
-        <button>Cerca</button>
+        <input v-model="store.searchFilm" @keyup.enter="cerca" placeholder="Cerca Film/Serie Tv">
+        <button @click="cerca">Cerca</button>
+        <div>
+            <AppListaFilm v-for="(item, index) in store.movies " :key="index" :film="item"></AppListaFilm>
+        </div>
     </div>
 </header>
 </template>
