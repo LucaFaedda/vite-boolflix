@@ -13,9 +13,18 @@ export default {
     },
     data(){
         return{
-            store
+            store,
+
         }
     },
+    computed:{
+        voto(){
+            return this.film.vote_average
+        }
+    },
+    methods:{
+        
+    }
 }
 </script>
 <template lang="">
@@ -26,7 +35,7 @@ export default {
                 <p>{{film.title}} </p>
                 <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/>
                 <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name">
-                <p>{{film.vote_average}}</p>
+                <p>{{voto/2}}</p>
             </li>
         </ul>
     </div>

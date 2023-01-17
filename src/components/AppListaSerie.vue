@@ -6,7 +6,7 @@ export default {
     },
     props:{
         serie:Object
-    }
+    },
 }
 </script>
 <template lang="">
