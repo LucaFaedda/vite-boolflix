@@ -20,11 +20,18 @@ import { store } from './store';
     },
     methods:{
       searchFilm(){
-        let newUrl =`${store.url}${store.searchFilm}`
+        let newUrl =`${store.urlFilm}${store.searchFilm}`
         console.log(newUrl)
         axios.get(newUrl).then((response)=>{
         store.movies = response.data.results
         console.log(store.movies)
+        })
+
+        let newUrlSerie=`${store.urlTV}${store.searchFilm}`
+        console.log(newUrlSerie)
+        axios.get(newUrlSerie).then((response)=>{
+        store.serieTv = response.data.results
+        console.log(store.serieTv)
         })
       },
     }

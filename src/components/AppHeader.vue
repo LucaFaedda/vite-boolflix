@@ -1,10 +1,12 @@
 <script>
 import { store } from '../store'
 import AppListaFilm from './AppListaFilm.vue'
+import AppListaSerie from './AppListaSerie.vue'
 
   export default {
     components:{
-        AppListaFilm
+        AppListaFilm,
+        AppListaSerie
     },
       data(){
         return{
@@ -28,6 +30,7 @@ import AppListaFilm from './AppListaFilm.vue'
         <button @click="cerca">Cerca</button>
         <div>
             <AppListaFilm v-for="(item, index) in store.movies " :key="index" :film="item"></AppListaFilm>
+            <AppListaSerie v-for="(item, index) in store.serieTv" :key="index" :serie="item"></AppListaSerie>
         </div>
     </div>
 </header>
