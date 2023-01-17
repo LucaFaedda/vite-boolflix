@@ -2,7 +2,7 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
-import axios from axios
+import axios from 'axios'
 import { store } from './store';
   export default {
     components:{
@@ -20,8 +20,8 @@ import { store } from './store';
     },
     methods:{
       MovieList(){
-        axios.get(url).then((response)=>{
-          console.log(response.)
+        axios.get(store.url).then((response)=>{
+          console.log(response.data.results)
         })
       }
     }
