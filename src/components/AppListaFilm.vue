@@ -19,7 +19,7 @@ export default {
     },
     computed:{
         voto(){
-            return this.film.vote_average
+            return this.film.vote_average/2
         }
     },
     methods:{
@@ -35,7 +35,7 @@ export default {
                 <p>{{film.title}} </p>
                 <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/>
                 <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name">
-                <p>{{voto/2}}</p>
+                <p>{{voto}}</p>
             </li>
         </ul>
     </div>
