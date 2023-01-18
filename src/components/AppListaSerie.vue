@@ -7,6 +7,11 @@ export default {
     props:{
         serie:Object
     },
+    computed:{
+        voto(){
+            return this.serie.vote_average/2
+        }
+    },
 }
 </script>
 <template lang="">
@@ -16,7 +21,7 @@ export default {
                 <p>{{ serie.original_name}}</p> 
                 <p>{{serie.name}} </p>
                 <CountryFlag :country="serie.original_language === 'en' ? 'gb' : ''" size="normal"/>
-                <p>{{serie.vote_average}}</p>
+                <p>{{voto}}</p>
                 <img :src="`https://image.tmdb.org/t/p/w154/${serie.poster_path}`" :alt="serie.name">
             </li>
         </ul>

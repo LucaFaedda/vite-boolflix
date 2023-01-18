@@ -1,12 +1,13 @@
 <script>
 import { store } from '../store'
 import CountryFlag from 'vue-country-flag-next'
+import StarRating from 'vue-star-rating'
 
 
 export default {
     components:{
         CountryFlag,
-
+        StarRating
     },
     props:{
         film:Object
@@ -14,7 +15,6 @@ export default {
     data(){
         return{
             store,
-
         }
     },
     computed:{
@@ -22,9 +22,6 @@ export default {
             return this.film.vote_average/2
         }
     },
-    methods:{
-        
-    }
 }
 </script>
 <template lang="">
@@ -35,7 +32,7 @@ export default {
                 <p>{{film.title}} </p>
                 <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/>
                 <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name">
-                <p>{{voto}}</p>
+               <p>{{voto}}</p>
             </li>
         </ul>
     </div>
