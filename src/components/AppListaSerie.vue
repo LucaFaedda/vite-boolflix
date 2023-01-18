@@ -28,11 +28,11 @@ export default {
             <div class="lista">
                 <ul class="unstyled-list">
                     <li>
-                        <p>Titolo:{{serie.name}} </p>
-                        <p>Titolo originale:{{ serie.original_name}}</p> 
-                        <img alt="" :src="`https://unpkg.com/language-icons/icons/${serie.original_language}.svg`">
-                        <p >Voto:<i v-for="item in votoserie" class="fa fa-2x fa-star">{{item.votoserie}}</i></p>
-                        <p>Plot: {{serie.overview.substr(0, 40)}} </p>
+                        <p><h4>Titolo:</h4> {{serie.name}} </p>
+                        <p><h4>Titolo originale:</h4>{{ serie.original_name}}</p> 
+                        <img :alt="serie.title" :src="`https://unpkg.com/language-icons/icons/${serie.original_language}.svg`">
+                        <p ><h4>Voto:</h4><i v-for="item in votoserie" class="fa fa-2x fa-star">{{item.votoserie}}</i></p>
+                        <p><h4>Plot:</h4>{{serie.overview.substr(0, 40)}}  </p>
                         
                     </li>
                 </ul>
@@ -65,8 +65,12 @@ export default {
 
         .lista{
             display:none;
+            color: #fff;
             img{
                 width: 20px;
+            }
+            h4{
+                color: rgb(160, 50, 16);
             }
         }
 

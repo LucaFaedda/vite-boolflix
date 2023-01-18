@@ -29,11 +29,11 @@ export default {
         <div class="lista">
             <ul class="unstyled-list">
                 <li>
-                    <p>Titolo{{film.title}} </p>
-                    <p>Titolo originale:{{ film.original_title}}</p> 
+                    <p><h4>Titolo:</h4> {{film.title}} </p>
+                    <p><h4>Titolo originale:</h4>{{ film.original_title}}</p> 
                     <img :alt="film.title" :src="`https://unpkg.com/language-icons/icons/${film.original_language}.svg`">
-                    <p >Voto:<i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p>
-                    <p>Plot: {{film.overview.substr(0, 40)}}  </p>
+                    <p ><h4>Voto:</h4><i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p>
+                    <p><h4>Plot:</h4>{{film.overview.substr(0, 40)}}  </p>
                 </li>
             </ul>
         </div>
@@ -66,8 +66,12 @@ export default {
 
         .lista{
             display:none;
+            color: #fff;
             img{
                 width: 20px;
+            }
+            h4{
+                color: rgb(160, 50, 16);
             }
         }
 

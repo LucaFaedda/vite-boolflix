@@ -38,7 +38,7 @@ export default {
     main{
         display: flex;
         flex-wrap: wrap;
-
+     
     }
 
 </style>
