@@ -1,13 +1,8 @@
 <script>
 import { store } from '../store'
-import CountryFlag from 'vue-country-flag-next'
-
 
 export default {
-    components:{
-        CountryFlag,
 
-    },
     props:{
         film:Object
     },
@@ -25,15 +20,16 @@ export default {
 </script>
 <template lang="">
     <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name">
+        <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name" class="image-card">
         <div class="lista">
             <ul class="unstyled-list">
                 <li>
-                    <p>{{ film.original_title}}</p> 
-                    <p>{{film.title}} </p>
-                    <img alt="" :src="`https://unpkg.com/language-icons/icons/${film.original_language}.svg`">
+                    <p>Titolo originale:{{ film.original_title}}</p> 
+                    <p>Titolo{{film.title}} </p>
+                    <img :alt="film.title" :src="`https://unpkg.com/language-icons/icons/${film.original_language}.svg`">
                     <!-- <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/> -->
-                    <p ><i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p>
+                    <p >Voto:<i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p>
+                    <p>Plot: {{film.overview}} </p>
                 </li>
             </ul>
         </div>
@@ -49,7 +45,7 @@ export default {
                 .lista{
                     display: block;
                 }
-                img{
+                .image-card{
                     display: none;
                 }
             }

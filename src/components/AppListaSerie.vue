@@ -24,7 +24,7 @@ export default {
 </script>
 <template lang="">
         <div class="card">
-            <img :src="`https://image.tmdb.org/t/p/w154/${serie.poster_path}`" :alt="serie.name">
+            <img :src="`https://image.tmdb.org/t/p/w154/${serie.poster_path}`" :alt="serie.name" class="image-card">
             <div class="lista">
                 <ul class="unstyled-list">
                     <li>
@@ -50,7 +50,7 @@ export default {
                 .lista{
                     display: block;
                 }
-                img{
+                .image-card{
                     display: none;
                 }
             }
