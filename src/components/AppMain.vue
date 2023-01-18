@@ -35,4 +35,10 @@ export default {
     @use '../styles/partials/variabiles' as *;
     @use '../styles/partials/mixin' as *;
 
+    main{
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
 </style>
