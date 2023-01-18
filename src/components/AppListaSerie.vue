@@ -28,11 +28,11 @@ export default {
             <div class="lista">
                 <ul class="unstyled-list">
                     <li>
-                        <p>Titolo originale:{{ serie.original_name}}</p> 
                         <p>Titolo:{{serie.name}} </p>
+                        <p>Titolo originale:{{ serie.original_name}}</p> 
                         <img alt="" :src="`https://unpkg.com/language-icons/icons/${serie.original_language}.svg`">
                         <p >Voto:<i v-for="item in votoserie" class="fa fa-2x fa-star">{{item.votoserie}}</i></p>
-                        <p>Plot: {{serie.overview}} </p>
+                        <p>Plot: {{serie.overview.substr(0, 40)}} </p>
                         
                     </li>
                 </ul>
@@ -44,7 +44,9 @@ export default {
     @use '../styles/partials/mixin' as *;
 
         .card{
-            width: calc(100% / 5);
+            margin: 5px;
+            width: calc(100% / 5 - 10px);
+            border:1px solid black ;
             &:hover{
                 .lista{
                     display: block;
@@ -52,6 +54,9 @@ export default {
                 .image-card{
                     display: none;
                 }
+            }
+            .image-card{
+                width: 100%;
             }
         }
         .unstyled-list{
