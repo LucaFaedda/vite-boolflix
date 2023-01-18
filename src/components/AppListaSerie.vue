@@ -15,20 +15,29 @@ export default {
 }
 </script>
 <template lang="">
-    <div>
+    <div class="container">
         <ul>
             <li>
-                <p>{{ serie.original_name}}</p> 
+                <!-- <p>{{ serie.original_name}}</p> 
                 <p>{{serie.name}} </p>
                 <CountryFlag :country="serie.original_language === 'en' ? 'gb' : ''" size="normal"/>
-                <p>{{voto}}</p>
+                <p>{{voto}}</p> -->
                 <img :src="`https://image.tmdb.org/t/p/w154/${serie.poster_path}`" :alt="serie.name">
             </li>
         </ul>
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
     @use '../styles/partials/variabiles' as *;
     @use '../styles/partials/mixin' as *;
-    
+    .container{
+        ul{
+            display: flex;
+            li{
+
+                display: flex;
+            }
+
+        }
+    }
 </style>

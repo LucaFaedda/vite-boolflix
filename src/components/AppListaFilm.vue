@@ -38,7 +38,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/partials/variabiles' as *;
 @use '../styles/partials/mixin' as *;
 
