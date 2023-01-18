@@ -32,10 +32,7 @@ import AppListaSerie from './AppListaSerie.vue'
         <input v-model="store.searchFilm" @keyup.enter="cerca" placeholder="Cerca Film/Serie Tv">
         <button @click="cerca">Cerca</button>
     </div>
-    <div>
-        <AppListaFilm v-for="(item, index) in store.movies " :key="index" :film="item"></AppListaFilm>
-        <AppListaSerie v-for="(item, index) in store.serieTv" :key="index" :serie="item"></AppListaSerie>
-    </div>
+
 </header>
 </template>
 <style lang="scss">
@@ -43,31 +40,35 @@ import AppListaSerie from './AppListaSerie.vue'
   @use '../styles/partials/mixin' as *;
   header{
     width: 100%;
-    height: 150px;
-    align-items: center;
+    height: 75px;
+    @include d-flex-center;
     justify-content: space-between;
-    display: flex;
     background-color: rgb(19, 18, 18);
         .col-4{
             width: 40%;
+            @include d-flex-center;
+            @include margin-lr-2rem;
             img{
-                width: 20%;
+                width: 30%;
             }
 
         }
         .col-6{
             width: 60%;
+            @include d-flex-center;
+            @include margin-lr-2rem;
+            justify-content: right;
             input{
-                padding: 10px;
+                padding: 5px 10px;
                 border-radius: 10px;
             }
         
             button{
-    
-                background-color: lightblue;
+                background-color: #fff;
                 padding: 5px 10px;
                 border: 1px solid;
-                border-radius: 15px;
+                border-radius: 8px;
+                margin-left: 5px;
             }
 
         }
