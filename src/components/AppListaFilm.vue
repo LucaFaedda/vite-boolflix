@@ -27,7 +27,6 @@ export default {
                     <p>Titolo originale:{{ film.original_title}}</p> 
                     <p>Titolo{{film.title}} </p>
                     <img :alt="film.title" :src="`https://unpkg.com/language-icons/icons/${film.original_language}.svg`">
-                    <!-- <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/> -->
                     <p >Voto:<i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p>
                     <p>Plot: {{film.overview}} </p>
                 </li>
@@ -56,6 +55,9 @@ export default {
 
         .lista{
             display:none;
+            img{
+                width: 20px;
+            }
         }
 
     

@@ -30,7 +30,6 @@ export default {
                     <li>
                         <p>Titolo originale:{{ serie.original_name}}</p> 
                         <p>Titolo:{{serie.name}} </p>
-                        <!-- <CountryFlag :country="serie.original_language === 'en' ? 'gb' : ''" size="normal"/> -->
                         <img alt="" :src="`https://unpkg.com/language-icons/icons/${serie.original_language}.svg`">
                         <p >Voto:<i v-for="item in votoserie" class="fa fa-2x fa-star">{{item.votoserie}}</i></p>
                         <p>Plot: {{serie.overview}} </p>
@@ -61,6 +60,9 @@ export default {
 
         .lista{
             display:none;
+            img{
+                width: 20px;
+            }
         }
 
   
