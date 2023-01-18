@@ -13,9 +13,6 @@ import { store } from './store';
         store
       } 
     },
-    created(){
-      this.searchFilm()
-    },
     methods:{
       searchFilm(){
         let newUrl =`${store.urlFilm}${store.searchFilm}`

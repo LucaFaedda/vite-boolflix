@@ -25,8 +25,15 @@ export default {
 </script>
 <template lang="">
     <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name" class="image-card">
+        <div v-if="film.poster_path == null" >
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwUQh4r7h-_HeIQImUej9vmTHOfrPPg9n58w&usqp=CAU" class = "not-found" alt="notfound">
+        </div>
+        <div v-else>
+            <img :src="`https://image.tmdb.org/t/p/w154/${film.poster_path}`" :alt="film.name" class="image-card">
+
+        </div>
         <div class="lista">
+            
             <ul class="unstyled-list">
                 <li>
                     <p><h4>Titolo:</h4> {{film.title}} </p>
@@ -45,23 +52,30 @@ export default {
 @use '../styles/partials/mixin' as *;
         .card{
             margin: 5px;
-            width: calc(100% / 5 - 10px);
+            width: calc(100% / 8 - 10px);
             border:1px solid black ;
             &:hover{
                 .lista{
                     display: block;
+                    font-size: 14px;
+                    
                 }
-                .image-card{
+                .image-card, .not-found{
                     display: none;
                 }
             }
             .image-card{
                 width: 100%;
             }
+            
         }
+        .not-found{
+                width: 100%;
+            }
  
         .unstyled-list{
             list-style: none;
+            margin: 4rem 0rem;
         }
 
         .lista{
