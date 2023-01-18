@@ -42,7 +42,6 @@ export default {
                         :src="`https://unpkg.com/language-icons/icons/${serie.original_language}.svg`">
                         <p ><h4>Voto:</h4><i v-for="item in votoserie" class="fa fa-2x fa-star">{{item.votoserie}}</i></p>
                         <p><h4>Plot:</h4>{{serie.overview.substr(0, 40)}}  </p>
-                        <!-- <CountryFlag :country="film.original_language === 'en' ? 'gb' : ''" size="normal"/> -->
                     </li>
                 </ul>
             </div>
