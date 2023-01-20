@@ -8,5 +8,7 @@ export const store = reactive({
     serieTv: [],
     trendingFilm: [],
     searchFilm: '',
+    loader: false,
+
 
 })

@@ -11,6 +11,7 @@ import AppListaSerie from './AppListaSerie.vue'
       data(){
         return{
             store,
+
         }
       },
       methods:{

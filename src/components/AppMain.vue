@@ -12,6 +12,7 @@ export default {
     data(){
         return{
             store,
+            
 
         }
       },
@@ -21,24 +22,21 @@ export default {
             this.$emit('search' , word)
         },
       },
-
-
-
 }
 </script>
 <template lang="">
 <div>
     <!-- scriverre bene length -->
-    <h2>Trovati {{store.movies.length }} Film</h2>
-    <div class="container-film"> 
-        <!-- contiene i film trovati     -->
-        <AppListaFilm v-for="(item, index) in store.movies " :key="index" :film="item"></AppListaFilm>        
-    </div>
-    <h2>Trovati {{store.serieTv.length }} serieTv</h2>
-    <div class="container-serieTv"> 
-        <!-- contiene le serie tv trovate -->
-        <AppListaSerie v-for="(item, index) in store.serieTv" :key="index" :serie="item"></AppListaSerie>
-    </div>
+        <h2>Trovati {{store.movies.length }} Film</h2>
+        <div class="container-film"> 
+            <!-- contiene i film trovati     -->
+            <AppListaFilm v-for="(item, index) in store.movies " :key="index" :film="item"></AppListaFilm>        
+        </div>
+        <h2>Trovati {{store.serieTv.length }} serieTv</h2>
+        <div class="container-serieTv"> 
+            <!-- contiene le serie tv trovate -->
+            <AppListaSerie v-for="(item, index) in store.serieTv" :key="index" :serie="item"></AppListaSerie>
+        </div>
 </div>
 </template>
 <style lang="scss" scoped>

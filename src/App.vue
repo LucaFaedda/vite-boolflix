@@ -1,17 +1,22 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppTrend from './components/AppTrend.vue';
 import axios from 'axios'
 import { store } from './store';
   export default {
     components:{
       AppHeader,
       AppMain,
+      AppTrend
     },
     data(){
       return{
         store
       } 
+    },
+    created(){
+      this.trendFilm
     },
     methods:{
       searchFilm(){
@@ -27,17 +32,29 @@ import { store } from './store';
         axios.get(newUrlSerie).then((response)=>{
         store.serieTv = response.data.results
         console.log(store.serieTv)
+        
         })
-      },
-    }
 
+        store.loader = true
+      },
       
-  }
+    },
+    computed:{
+        trendFilm(){
+          axios.get(store.urlTrendingFilm).then((response)=>{
+            store.trendingFilm = response.data.results
+            console.log(store.trendingFilm)
+          })
+      }
+  }}
 </script>
 <template lang="">
   <div>
     <AppHeader @search="searchFilm" ></AppHeader>
-    <AppMain></AppMain>
+    <div v-if="store.loader === false"><AppTrend></AppTrend></div>
+    <div v-else>
+      <AppMain></AppMain>
+    </div>
   </div>
 </template>
 <style lang="scss">

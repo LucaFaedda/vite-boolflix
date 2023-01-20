@@ -1,11 +1,9 @@
 <script>
-import CountryFlag from 'vue-country-flag-next'
+
 
 import { store } from '../store'
 export default {
-    components:{
-        CountryFlag,
-    },
+
     props:{
         serie:Object
     },
@@ -54,7 +52,7 @@ export default {
         .card{
             margin: 5px;
             width: calc(100% / 8 - 10px);
-            border:1px solid black ;
+
             &:hover{
                 .lista{
                     display: block;
@@ -82,7 +80,7 @@ export default {
                 width: 20px;
             }
             h4{
-                color: rgb(160, 50, 16);
+                color: $redcolor;
             }
         }
 
