@@ -17,9 +17,12 @@ export default {
         }
     },
     methods:{
-        
+        showPlot(){
+            store.display =! store.display
+        }        
 
     }
+    
     
 }
 </script>
@@ -41,7 +44,11 @@ export default {
                     <p><h4>Titolo originale:</h4>{{ film.original_title}}</p> 
                     <img :alt="film.title" :src="`https://unpkg.com/language-icons/icons/${film.original_language}.svg`">
                     <p ><h4>Voto:</h4><i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p>
-                    <p><h4>Plot:</h4>{{film.overview.substr(0, 40)}}  </p>
+                    <div>
+                        <h4>Plot:</h4>
+                        <div v-if="store.display"><span >{{film.overview.substr(0, 40)}}.... </span><span class="color" @:click="showPlot()">read more </span></div>
+                        <div v-else @:click="showPlot()" class="pointer">{{film.overview}}</div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -85,7 +92,7 @@ export default {
             img{
                 width: 20px;
             }
-            h4{
+            h4, .color{
                 color: $redcolor;
             }
         }

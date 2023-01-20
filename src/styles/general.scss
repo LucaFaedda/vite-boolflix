@@ -11,3 +11,13 @@ body {
     background-color: rgb(7, 4, 4);
     font-family: 'Roboto', sans-serif;
 }
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+.pointer,
+.color {
+    cursor: pointer;
+}

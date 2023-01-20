@@ -19,6 +19,13 @@ export default {
             return Math.round(this.serie.vote_average/2)
         }
     },
+    methods:{
+        showPlot(){
+            store.display =! store.display
+        }        
+
+    }
+    
 }
 </script>
 <template lang="">
@@ -39,7 +46,11 @@ export default {
                         :alt="serie.title" 
                         :src="`https://unpkg.com/language-icons/icons/${serie.original_language}.svg`">
                         <p ><h4>Voto:</h4><i v-for="item in votoserie" class="fa fa-2x fa-star">{{item.votoserie}}</i></p>
-                        <p><h4>Plot:</h4>{{serie.overview.substr(0, 40)}}  </p>
+                        <div>
+                            <h4>Plot:</h4>
+                            <div v-if="store.display"><span >{{serie.overview.substr(0, 40)}}.... </span><span class="color" @:click="showPlot()">read more </span></div>
+                            <div v-else @:click="showPlot()" class="pointer">{{serie.overview}}</div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -79,7 +90,7 @@ export default {
             img{
                 width: 20px;
             }
-            h4{
+            h4, .color{
                 color: $redcolor;
             }
         }

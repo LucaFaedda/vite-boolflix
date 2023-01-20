@@ -9,7 +9,6 @@ export default {
     data(){
         return{
             store,
-            display : true
         }
     },
     computed:{
@@ -19,7 +18,7 @@ export default {
     },
     methods:{
         showPlot(){
-            this.display =! this.display
+            store.display =! store.display
         }        
 
     }
@@ -45,8 +44,8 @@ export default {
                         <p ><h4>Voto:</h4><i v-for="item in vototrend" class="fa fa-2x fa-star">{{item.voto}}</i></p>
                         <div>
                             <h4>Plot:</h4>
-                            <div v-if="display"><span >{{trend.overview.substr(0, 40)}}.... </span><a href="#" @:click="showPlot()">read more </a></div>
-                            <div v-else @:click="showPlot()">{{trend.overview}}</div>
+                            <div v-if="store.display"><span >{{trend.overview.substr(0, 40)}}.... </span><span @:click="showPlot()" class="color">read more </span></div>
+                            <div v-else @:click="showPlot()" class="pointer">{{trend.overview}}</div>
                         </div>
 
                     </li>
@@ -75,15 +74,8 @@ export default {
             .image-card{
                 width: 100%;
             }
-
-            a{
-                text-decoration: none;
-                color: blue;
-              
-            }
-                
-            }
-
+ 
+        }
         .not-found{
                 width: 100%;
             }
@@ -100,7 +92,7 @@ export default {
             img{
                 width: 20px;
             }
-            h4{
+            h4, .color{
                 color: $redcolor;
             }
         }

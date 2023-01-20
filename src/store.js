@@ -9,6 +9,7 @@ export const store = reactive({
     trendingFilm: [],
     searchFilm: '',
     loader: false,
+    display: true
 
 
 })
