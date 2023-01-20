@@ -43,10 +43,10 @@ export default {
                         <p><h4>Titolo originale:</h4>{{ trend.original_title}}</p> 
                         <img :alt="trend.title" :src="`https://unpkg.com/language-icons/icons/${trend.original_language}.svg`">
                         <p ><h4>Voto:</h4><i v-for="item in vototrend" class="fa fa-2x fa-star">{{item.voto}}</i></p>
-                        <!-- <p class="plot"><h4>Plot:</h4><span >{{trend.overview.substr(0, 40)}}.... </span><a href="#">read more  <p class="plot-compleate">{{trend.overview}}</p></a> -->
                         <div>
-                            <div v-if="display"><h4>Plot:</h4><span >{{trend.overview.substr(0, 40)}}.... </span><a href="#" @:click="showPlot()">read more </a></div>
-                            <div v-else>{{trend.overview}}</div>
+                            <h4>Plot:</h4>
+                            <div v-if="display"><span >{{trend.overview.substr(0, 40)}}.... </span><a href="#" @:click="showPlot()">read more </a></div>
+                            <div v-else @:click="showPlot()">{{trend.overview}}</div>
                         </div>
 
                     </li>
@@ -81,15 +81,6 @@ export default {
                 color: blue;
               
             }
-            .active:hover{
-                    .plot{
-                        display: none;
-                        color: red;
-                    }
-                    .plot-compleate{
-                        display: block;
-                    }
-                }
                 
             }
 
@@ -113,10 +104,6 @@ export default {
                 color: $redcolor;
             }
         }
-    .plot-compleate{
-        display: none;
-        color: #fff;
-    }
 
 
     
