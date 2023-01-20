@@ -61,6 +61,10 @@ export default {
             margin: 5px;
             width: calc(100% / 8 -  10px);
 
+            i{
+                color: yellow;
+            }
+
             &:hover{
                 .lista{
                     display: block;
@@ -75,25 +79,25 @@ export default {
                 width: 100%;
             }
  
-        }
-        .not-found{
-                width: 100%;
+            .not-found{
+                    width: 100%;
+                }
+     
+            .unstyled-list{
+                list-style: none;
+                margin-top: 4rem;
+    
             }
- 
-        .unstyled-list{
-            list-style: none;
-            margin-top: 4rem;
-
-        }
-
-        .lista{
-            display:none;
-            color: #fff;
-            img{
-                width: 20px;
-            }
-            h4, .color{
-                color: $redcolor;
+    
+            .lista{
+                display:none;
+                color: #fff;
+                img{
+                    width: 20px;
+                }
+                h4, .color{
+                    color: $redcolor;
+                }
             }
         }
 
