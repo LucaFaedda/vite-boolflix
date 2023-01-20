@@ -9,15 +9,18 @@ export default {
     data(){
         return{
             store,
+            display : true
         }
     },
-    /*computed:{
-        voto(){
-            return Math.round(this.film.vote_average/2)
+    computed:{
+        vototrend(){
+            return Math.round(this.trend.vote_average/2)
         }
-    },*/
+    },
     methods:{
-        
+        showPlot(){
+            this.display =! this.display
+        }        
 
     }
     
@@ -39,8 +42,13 @@ export default {
                         <p><h4>Titolo:</h4> {{trend.title}} </p>
                         <p><h4>Titolo originale:</h4>{{ trend.original_title}}</p> 
                         <img :alt="trend.title" :src="`https://unpkg.com/language-icons/icons/${trend.original_language}.svg`">
-                        <!-- <p ><h4>Voto:</h4><i v-for="item in voto" class="fa fa-2x fa-star">{{item.voto}}</i></p> -->
-                        <p><h4>Plot:</h4>{{trend.overview.substr(0, 40)}}  </p>
+                        <p ><h4>Voto:</h4><i v-for="item in vototrend" class="fa fa-2x fa-star">{{item.voto}}</i></p>
+                        <!-- <p class="plot"><h4>Plot:</h4><span >{{trend.overview.substr(0, 40)}}.... </span><a href="#">read more  <p class="plot-compleate">{{trend.overview}}</p></a> -->
+                        <div>
+                            <div v-if="display"><h4>Plot:</h4><span >{{trend.overview.substr(0, 40)}}.... </span><a href="#" @:click="showPlot()">read more </a></div>
+                            <div v-else>{{trend.overview}}</div>
+                        </div>
+
                     </li>
                 </ul>
             </div>
@@ -68,15 +76,31 @@ export default {
                 width: 100%;
             }
 
-            
-        }
+            a{
+                text-decoration: none;
+                color: blue;
+              
+            }
+            .active:hover{
+                    .plot{
+                        display: none;
+                        color: red;
+                    }
+                    .plot-compleate{
+                        display: block;
+                    }
+                }
+                
+            }
+
         .not-found{
                 width: 100%;
             }
  
         .unstyled-list{
             list-style: none;
-            margin: 4rem 0rem;
+            margin-top: 4rem;
+
         }
 
         .lista{
@@ -89,6 +113,11 @@ export default {
                 color: $redcolor;
             }
         }
+    .plot-compleate{
+        display: none;
+        color: #fff;
+    }
+
 
     
 </style>

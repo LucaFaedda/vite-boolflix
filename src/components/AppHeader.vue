@@ -30,8 +30,8 @@ import AppListaSerie from './AppListaSerie.vue'
         <img src=https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/799px-Netflix_2015_logo.svg.png?20190206123158 al="logo-netflix">
     </div>
     <div class="col-6">
-        <input v-model="store.searchFilm" @keyup.enter="cerca" placeholder="Cerca Film/Serie Tv">
-        <button @click="cerca">Cerca</button>
+        <input v-model="store.searchFilm" @keyup.enter="cerca" placeholder="Search Movies or Series ">
+        <button @click="cerca">Search</button>
     </div>
 
 </header>
@@ -60,16 +60,19 @@ import AppListaSerie from './AppListaSerie.vue'
             @include margin-lr-2rem;
             justify-content: right;
             input{
-                padding: 5px 10px;
-                border-radius: 10px;
+              padding: 5px 10px;
+              outline: none;                
             }
         
             button{
                 background-color: #fff;
-                padding: 5px 10px;
+                padding: 6px 10px;
                 border: 1px solid;
-                border-radius: 8px;
                 margin-left: 5px;
+                &:hover{
+                  cursor: pointer;
+                  background-color: lightgray;
+                }
             }
 
         }
